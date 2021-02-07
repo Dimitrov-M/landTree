@@ -1,0 +1,20 @@
+company_id,name,parent
+a,Comp a,
+b,Comp b,
+c,Comp c,
+ab,Comp ab,a
+aa,Comp aa,a
+ba,Comp ba,b
+bb,Comp bb,b
+ca,Comp ca,c
+cb,Comp cb,c
+cc,Comp cc,c
+aaa,Comp aaa,aa
+aab,Comp aab,aa
+aac,Comp aac,aa
+aba,Comp aba,ab
+abb,Comp abb,ab
+bba,Comp bba,bb
+aaaa,Comp aaaa,aaa
+aaab,Comp aaab,aaa
+d,Comp d,
