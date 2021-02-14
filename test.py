@@ -39,8 +39,8 @@ class LandTreeTestCase(unittest.TestCase):
 
     def test_roots_detected(self):
         self.set_up()
-        self.assertEqual(self.node_a.is_root, True, "Company a should be a root")
-        self.assertEqual(self.node_aa.is_root, False, "Company aa should not be a root")
+        self.assertTrue(self.node_a.is_root, "Company a should be a root")
+        self.assertFalse(self.node_aa.is_root, "Company aa should not be a root")
 
     def test_get_descendants(self):
         self.set_up()
@@ -49,9 +49,9 @@ class LandTreeTestCase(unittest.TestCase):
 
     def test_get_root(self):
         self.set_up()
-        self.assertEqual(self.node_aa.get_root(), self.node_a, "Company a should be the root of aa")
-        self.assertEqual(self.node_aaa.get_root(), self.node_a, "Company a should be the root of aaa")
-        self.assertEqual(self.node_aaa.get_root(), self.node_aa.get_root(), "Company aa should have the same root as aaa")
+        self.assertIs(self.node_aa.get_root(), self.node_a, "Company a should be the root of aa")
+        self.assertIs(self.node_aaa.get_root(), self.node_a, "Company a should be the root of aaa")
+        self.assertIs(self.node_aaa.get_root(), self.node_aa.get_root(), "Company aa should have the same root as aaa")
 
     def test_get_level(self):
         self.set_up()
@@ -62,7 +62,7 @@ class LandTreeTestCase(unittest.TestCase):
     def test_get_all_land(self):
         self.set_up()
         self.assertEqual(len(self.node_a.get_all_land()), 6, "Company a should have 6 lands in total")
-        self.assertEqual('l5' in self.node_a.get_all_land(), True, "Company a should own land l5")
+        self.assertIn('l5', self.node_a.get_all_land(), "Company a should own land l5")
         self.assertEqual(len(self.node_aa.get_all_land()), 3, "Company aa should have 3 lands in total")
         self.assertEqual(len(self.node_aaa.get_all_land()), 0, "Company aaa should have 0 lands in total")
 
