@@ -84,8 +84,6 @@ class Node():
                         print(node.print_node())
            
 def main():
-    mode = ''
-    company_id = ''
     nodes = {}
 
     parser = argparse.ArgumentParser()
@@ -103,12 +101,15 @@ def main():
                 nodes[id] = Node(id, name, is_root=True)
             else:
                 nodes[id] = Node(id, name, parentId)
-    for child_node in nodes:
-        if nodes[child_node].parent_id:
-            for parent_node in nodes:
-                if nodes[parent_node].id == nodes[child_node].parent_id:
-                    nodes[child_node].parent = nodes[parent_node]
-                    nodes[parent_node].children.append(nodes[child_node])
+
+    # Refactoring this loop resulted in runtime improvement of more than a second
+    for node_id in nodes:
+        try:
+            nodes[node_id].parent = nodes[nodes[node_id].parent_id]
+            nodes[nodes[node_id].parent_id].children.append(nodes[node_id])
+        except KeyError:
+            pass
+
 
     with open("./land_ownership.csv") as csv:
         next(csv) # header
