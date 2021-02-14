@@ -14,6 +14,11 @@ Example:
 - ```from_root``` - renders the direct path from the root to the selected company.
 - ```expand``` - renders the subtree for the selected company.
 
+## Test
+```
+.\test
+```
+
 ## Notes
 - I have added two additional files to make it easier to test when developing.
 - The script defaults to a ```full_tree``` mode if run without a mode.
